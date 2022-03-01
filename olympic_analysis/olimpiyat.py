@@ -51,7 +51,7 @@ essiz_etkinlik[:10]
 
 # HER BİR ETKİNLİK İTERATİF OLARAK DOLAŞ #
 # ETKİNLİK ÜZERİNDE BOY-KİLO ORTALAMALARINI HESAPLA #
-# TKİNLİK ÜZERİNDE BOY-KİLO DEĞERLERİNİ ETKİNLİK ORTALAMLARINA EŞİTLE #
+# ETKİNLİK ÜZERİNDE BOY-KİLO DEĞERLERİNİ ETKİNLİK ORTALAMLARINA EŞİTLE #
 
 veri_gecici=veri.copy() # gerçek veriyi bozmamak için kopyasını oluşturalım #
 boy_kilo_liste=["boy","kilo"]
@@ -62,7 +62,7 @@ for e in essiz_etkinlik: # liste içerisinde dolaş #
      # veriyi etkinliğe göre filtreyelim #
      veri_filtreli=veri_gecici[etkinlik_filtre]
 
-     # boy kilo için etkinlik özelinde ortalmlarını hesaplayalım #
+     # boy kilo için etkinlik özelinde ortalmalarını hesaplayalım #
      for s in boy_kilo_liste:
          ortalama=np.round(np.mean(veri_filtreli[s]),2)
          if ~np.isnan(ortalama): # eğer etkinlik özelinde aram varsa #
@@ -103,9 +103,7 @@ result=veri.info()
 # VERİYİ KAYDEDELİM #
 
 result=veri.to_csv("olimpiyat_temiz.csv",index=False)
-
 print(result)
-
 
 
 
@@ -136,7 +134,7 @@ plt.boxplot(veri.yas)
 plt.title("Yaş Değişkeni İçin Kutu Grafği")
 plt.xlabel("yas")
 plt.ylabel("Değer")
-# plt.show()
+#plt.show()
 
 
 
@@ -189,7 +187,7 @@ plt.legend()
 
 # SAYISAL SÜTUNLAR ARASINDAKI İLİŞKİ #
 
-result=veri.loc[:,["yas","boy","kilo",]].corr() #korelasyon tablosu
+result=veri.loc[:,["yas","boy","kilo"]].corr() # korelasyon tablosu #
 #print(result)
 
 
@@ -199,10 +197,10 @@ result=veri.loc[:,["yas","boy","kilo",]].corr() #korelasyon tablosu
 # MADALYA YAŞ İLİŞKİSİ #
 
 # SPORCULARI MADALYALARINA GÖRE AYARLAMA #
+
 veri_gecici=veri.copy()
 veri_gecici=pd.get_dummies(veri_gecici,columns=["madalya"])
 # print(veri_gecici.head(2))
-
 result=veri_gecici.loc[:,["yas","madalya_Bronze","madalya_Gold","madalya_Silver"]].corr()
 # print(result)
 
@@ -211,10 +209,6 @@ result=veri_gecici.loc[:,["yas","madalya_Bronze","madalya_Gold","madalya_Silver"
 # TAKIMLARIN KAZANDIKLARI ALTIN-GÜMÜŞ-BRONZ MADALYA SAYILARI #
 
 #print(veri_gecici[["takim","madalya_Bronze","madalya_Gold","madalya_Silver",]].groupby(["takim"], as_index=False).sum().sort_values(by="madalya_Gold",ascending=False)[:10])
-
-
-
-
 
 
 
@@ -303,6 +297,7 @@ plt.title("Olimpiyatlar Çift Yıllarda Düzenlenir")
 
 
 # VERİ İÇERİSİNDE BULUNAN YIL DEĞERLERİNİ datetime VERİ TİPİNE DÖNÜŞTÜRELİM #
+
 tarih_saat_nesnesi=pd.to_datetime(veri_zaman["yil"],format="%Y")
 # print(tarih_saat_nesnesi.head(3))
 veri_zaman["tarih_saat"]=tarih_saat_nesnesi
@@ -316,11 +311,11 @@ veri_zaman.drop(["yil"],axis=1,inplace=True)
 # print(veri_zaman)
 
 
-periyodik_veri=veri_zaman.resample("2A").mean() # 2yıllık periyotlar halinde #
+periyodik_veri=veri_zaman.resample("2A").mean() # 2 yıllık periyotlar halinde #
 # print(periyodik_veri.head())
-
 periyodik_veri.dropna(axis=0,inplace=True)
 # print(periyodik_veri.head(3))
+
 
 plt.figure()
 periyodik_veri.plot()
@@ -330,8 +325,9 @@ plt.grid(True)
 # plt.show()
 
 # KAYIP VERİLERİ ÇIKARALIM #
+
 periyodik_veri.dropna(axis=0,inplace=True)
-# print(periyodik_veri.head())
+#print(periyodik_veri.head())
 
 
 
