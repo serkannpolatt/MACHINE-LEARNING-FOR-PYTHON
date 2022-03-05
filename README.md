@@ -1,2 +1,2 @@
 # MACHINE LEARNING FOR PYTHON
- my data analytics
+My and Other persons' data analysis's
