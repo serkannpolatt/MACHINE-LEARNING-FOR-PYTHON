@@ -3,4 +3,5 @@
 # IN HERE;
 # I AM DOING MACHINE LEARNING EXERCISES AND MACHINE LEARNING RESOURCES ARE HERE
 
-![e2f96-old-header-machine-learning-pt1](https://user-images.githubusercontent.com/92849974/186729326-08c67701-212b-457d-8926-099abe8efe6f.gif)
+
+![1_d7QeSREErtMuJQ0bcptMXQ](https://user-images.githubusercontent.com/92849974/186729417-5e5c7b23-03a0-4ef8-90ff-f7ee8ceb06bc.gif)
